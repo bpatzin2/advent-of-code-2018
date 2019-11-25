@@ -8,8 +8,11 @@
 (defn split_string [numbers_string]
   (str/split numbers_string #", "))
 
+(defn string-to-int-vector [numbers_string] 
+  (map parse-int (split_string numbers_string)))
+
 (defn sum_comma_separated_numbers [numbers_string]
-  (reduce + (map parse-int (split_string numbers_string))))
+  (reduce + (string-to-int-vector numbers_string)))
 
 (defn -main []
   (sum_comma_separated_numbers "-1, 1, 0"))
