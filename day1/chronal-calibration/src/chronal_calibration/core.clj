@@ -17,6 +17,9 @@
 (defn rolling-sum [vec, val] 
   (conj vec (+ (last vec) val)))
 
+(defn rolling-sum [vec, val]
+  (conj vec (+ (last vec) val)))
+
 (defn reduced-dup-val-or-append [vec, val]
   (if (contains? vec val)
     (reduced val) 
@@ -32,16 +35,17 @@
   (map rolling_sum_comma_separated_numbers (ever-growing-cycles numbers_string)))
 
 (defn reduce-to-val-or-nil [vec]
-  (reduce reduced-dup-val-or-append #{} vec))
+  (let [ rez (reduce reduced-dup-val-or-append #{} vec)] 
+    (if (coll? rez) nil rez)))
 
 (defn first-repeated-sum-or-rolling-sums [numbers_string]
   (map reduce-to-val-or-nil (ever-growing-rolling-sums numbers_string)))
 
 (defn val-or-nil [_, val]
-  (if (coll? val) (constantly nil) (reduced val)))
+  (if (nil? val) (constantly nil) (reduced val)))
 
 (defn first-dup-in-rolling-sum [numbers_string]
-  (reduce val-or-nil [] (first-repeated-sum-or-rolling-sums numbers_string)))
+  (reduce reduced-dup-val-or-append #{} (reductions + 0 (cycle (string-to-int-vector numbers_string)))))
 
 (defn string1 [] (slurp "input.txt"))
 
