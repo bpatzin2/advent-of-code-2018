@@ -43,5 +43,11 @@
 (defn first-dup-in-rolling-sum [numbers_string]
   (reduce val-or-nil [] (first-repeated-sum-or-rolling-sums numbers_string)))
 
+(defn string1 [] (slurp "input.txt"))
+
+(defn tmp-csv [] (str/replace (string1) #"\n" ", "))
+
+(defn gen-csv [] (subs (tmp-csv) 0 (- (count (tmp-csv)) 2)))
+
 (defn -main []
   (sum_comma_separated_numbers "-1, 1, 0"))
