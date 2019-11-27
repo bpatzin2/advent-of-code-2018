@@ -5,51 +5,32 @@
 (defn parse-int [s]
   (. Integer (parseInt (re-find #"\A-?\d+" (str/replace s #"\+" "")))))    
 
-(defn split_string [numbers_string]
+(defn split-string [numbers_string]
   (str/split numbers_string #", "))
 
-(defn string-to-int-vector [numbers_string] 
-  (map parse-int (split_string numbers_string)))
+(defn map-string-to-int-vector [numbers_string] 
+  (map parse-int (split-string numbers_string)))
 
 (defn sum_comma_separated_numbers [numbers_string]
-  (reduce + (string-to-int-vector numbers_string)))
-
-(defn rolling-sum [vec, val] 
-  (conj vec (+ (last vec) val)))
-
-(defn rolling-sum [vec, val]
-  (conj vec (+ (last vec) val)))
+  (reduce + (map-string-to-int-vector numbers_string)))
 
 (defn reduced-dup-val-or-append [vec, val]
   (if (contains? vec val)
     (reduced val) 
     (conj vec val)))
 
-(defn rolling_sum_comma_separated_numbers [numbers_string]
-  (reduce rolling-sum [0] (string-to-int-vector numbers_string)))
+(defn rolling-sum [int-seq]
+  (reductions + 0 (cycle int-seq)))
 
-(defn ever-growing-cycles [numbers_string]
-  (map #(str/join ", " %1) (reductions conj [numbers_string] (repeat numbers_string))))
-
-(defn ever-growing-rolling-sums [numbers_string]
-  (map rolling_sum_comma_separated_numbers (ever-growing-cycles numbers_string)))
-
-(defn reduce-to-val-or-nil [vec]
-  (let [ rez (reduce reduced-dup-val-or-append #{} vec)] 
-    (if (coll? rez) nil rez)))
-
-(defn first-repeated-sum-or-rolling-sums [numbers_string]
-  (map reduce-to-val-or-nil (ever-growing-rolling-sums numbers_string)))
-
-(defn val-or-nil [_, val]
-  (if (nil? val) (constantly nil) (reduced val)))
+(defn rolling-sum-from-string [numbers_string]
+  (rolling-sum (map-string-to-int-vector numbers_string)))
 
 (defn first-dup-in-rolling-sum [numbers_string]
-  (reduce reduced-dup-val-or-append #{} (reductions + 0 (cycle (string-to-int-vector numbers_string)))))
+  (reduce reduced-dup-val-or-append #{} (rolling-sum-from-string numbers_string)))
 
-(defn string1 [] (slurp "input.txt"))
+(defn input-as-string [] (slurp "input.txt"))
 
-(defn tmp-csv [] (str/replace (string1) #"\n" ", "))
+(defn tmp-csv [] (str/replace (input-as-string) #"\n" ", "))
 
 (defn gen-csv [] (subs (tmp-csv) 0 (- (count (tmp-csv)) 2)))
 
