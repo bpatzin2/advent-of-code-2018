@@ -1,5 +1,6 @@
 (ns chronal-calibration.core-spec
   (:require [speclj.core :refer :all]
+            [chronal-calibration.file-input :refer :all]
             [chronal-calibration.core :refer :all]))
 
 (describe "sum_comma_separated_numbers"
