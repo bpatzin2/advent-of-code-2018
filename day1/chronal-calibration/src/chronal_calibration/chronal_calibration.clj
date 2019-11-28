@@ -28,6 +28,3 @@
 
 (defn first-dup-in-rolling-sum [numbers_string]
   (reduce reduced-dup-val-or-append #{} (rolling-sum-from-string numbers_string)))
-
-(defn -main []
-  (sum_comma_separated_numbers "-1, 1, 0"))
