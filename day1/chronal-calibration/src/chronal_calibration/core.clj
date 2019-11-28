@@ -4,7 +4,7 @@
             [chronal-calibration.file-input :as input]))
 
 (defn day1pt1 []
-  (cc/sum_comma_separated_numbers (input/gen-csv)))
+  (cc/sum_comma_separated_numbers (input/day1-input-csv)))
 
 (defn day1pt2 []
-  (cc/first-dup-in-rolling-sum (input/gen-csv)))
+  (cc/first-dup-in-rolling-sum (input/day1-input-csv)))

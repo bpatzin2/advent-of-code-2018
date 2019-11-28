@@ -2,8 +2,8 @@
   (:gen-class)
   (:require [clojure.string :as str]))
 
-(defn input-as-string [] (slurp "day1_input.txt"))
+(defn day1-input-as-string [] (slurp "day1_input.txt"))
 
-(defn tmp-csv [] (str/replace (input-as-string) #"\n" ", "))
+(defn day1-tmp-csv [] (str/replace (day1-input-as-string) #"\n" ", "))
 
-(defn gen-csv [] (subs (tmp-csv) 0 (- (count (tmp-csv)) 2)))
+(defn day1-input-csv [] (subs (day1-tmp-csv) 0 (- (count (day1-tmp-csv)) 2)))
