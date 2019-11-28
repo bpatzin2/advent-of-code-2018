@@ -1,7 +1,6 @@
 (ns chronal-calibration.chronal-calibration
   (:gen-class)
-  (:require [clojure.string :as str]
-            [chronal-calibration.file-input :refer :all]))
+  (:require [clojure.string :as str]))
 
 (defn parse-int [s]
   (. Integer (parseInt (re-find #"\A-?\d+" (str/replace s #"\+" "")))))
