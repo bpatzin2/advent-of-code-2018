@@ -7,7 +7,7 @@
           (it "works for real input"
               (should= 569 (day1pt1))))
 
-(describe "first-dup-in-rolling-sum"
+(describe "day1pt2"
           (it "works for real input"
               (should= 77666 (day1pt2))))
 
