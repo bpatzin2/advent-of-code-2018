@@ -2,7 +2,7 @@
   (:gen-class)
   (:require [clojure.string :as str]))
 
-(defn input-as-string [] (slurp "input.txt"))
+(defn input-as-string [] (slurp "day1_input.txt"))
 
 (defn tmp-csv [] (str/replace (input-as-string) #"\n" ", "))
 
