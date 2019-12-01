@@ -8,13 +8,13 @@
 (defn range-cart-product [x y]
   (combo/cartesian-product (range 0 x) (range 0 y)))
 
-(defn all-squares [rectangle]
+(defn expand [rectangle]
   (let [a ((rectangle 0) 0) 
         b ((rectangle 0) 1)
         width ((rectangle 1) 0)
         height ((rectangle 1) 1)]
-    (set (map #(square a b %) (range-cart-product width height)))))
+    (map #(square a b %) (range-cart-product width height))))
 
-(defn overlapping-squares [rectangles] 
-  (map all-squares rectangles))
+(defn expand-all [rectangles] 
+  (mapcat expand rectangles))
 
