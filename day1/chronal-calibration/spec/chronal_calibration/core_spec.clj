@@ -13,7 +13,7 @@
 
 (describe "day2pt1"
           (it "works for real input"
-              (should= 4 (day2pt1))))
+              (should= 5727 (day2pt1))))
 
 (describe "day3pt1"
           (it "works for real input"
