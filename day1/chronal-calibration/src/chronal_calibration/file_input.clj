@@ -7,3 +7,7 @@
 (defn day1-tmp-csv [] (str/replace (day1-input-as-string) #"\n" ", "))
 
 (defn day1-input-csv [] (subs (day1-tmp-csv) 0 (- (count (day1-tmp-csv)) 2)))
+
+(defn day1-tmp-csv [] (str/replace (day1-input-as-string) #"\n" ", "))
+
+(defn day2-input-list [] (str/split (slurp "day2_input.txt"), #"\n"))
