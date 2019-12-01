@@ -2,6 +2,7 @@
   (:gen-class)
   (:require [chronal-calibration.chronal-calibration :as cc]
             [chronal-calibration.inventory-mgmt :as im]
+            [chronal-calibration.slice-suit :as ss]
             [chronal-calibration.file-input :as input]))
 
 (defn day1pt1 []
@@ -12,3 +13,6 @@
 
 (defn day2pt1 []
   (im/checksum (input/day2-input-list)))
+
+(defn day3pt1 []
+  (count (ss/overlapping-squares (input/day3-input))))
