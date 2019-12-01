@@ -18,3 +18,9 @@
 (defn expand-all [rectangles] 
   (mapcat expand rectangles))
 
+(defn multiple-in-freq [[_point frequency]]
+  (> frequency 1))
+
+(defn overlapping-squares [rectangles]
+  (set (keys (filter multiple-in-freq (frequencies (expand-all rectangles))))))
+
