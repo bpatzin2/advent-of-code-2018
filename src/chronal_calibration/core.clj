@@ -14,5 +14,8 @@
 (defn day2pt1 []
   (im/checksum (input/day2-input-list)))
 
+(defn day2pt2 []
+  (im/common-letters-of-ham1-strings (input/day2-input-list)))
+
 (defn day3pt1 []
   (count (ss/overlapping-squares (input/day3-input))))

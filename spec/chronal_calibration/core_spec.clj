@@ -15,6 +15,10 @@
           (it "works for real input"
               (should= 5727 (day2pt1))))
 
+(describe "day2pt2"
+          (it "works for real input"
+              (should= "uwfmdjxyxlbgnrotcfpvswaqh" (day2pt2))))
+
 (describe "day3pt1"
           (it "works for real input"
               (should= 121259 (day3pt1))))
