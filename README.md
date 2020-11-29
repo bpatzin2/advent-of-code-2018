@@ -1,7 +1,15 @@
-# chronal-calibration
+# advent-of-code-2018
 
-A Clojure app to ... well, that part is up to you.
+Working to solve the challenges at https://adventofcode.com/2018
 
-## Usage
+This year I'm using Clojure, which is a new language to me.
 
-FIXME
+## Run it
+Run tests: ``lein spec``
+
+Run particular challenge: 
+````
+lein repl
+=> (day2pt2)
+"uwfmdjxyxlbgnrotcfpvswaqh"
+````
