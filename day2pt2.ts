@@ -9,7 +9,6 @@ function findDifferentBy1Commonality(strs: string[]): string|null {
   const lineLength = strs[0].length
   let i = 0
   while(i < lineLength){
-    const line = strs[i]
     const m = new Map<string, string>()
     let j = 0
     while(j < strs.length){
