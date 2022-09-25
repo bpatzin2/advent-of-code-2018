@@ -8,6 +8,7 @@ function firstDuplicateFrequency(changes: number[]) {
   let frequency = 0
   const frequencies = new Set<number>([frequency])
   let i = 0
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const change = changes[i]
     frequency += change
